@@ -72,19 +72,177 @@ class StarPatterns
     
     public static void starXBox(int h)
     {
+        int w = h;
+    for (int i=0; i<h; i++)
+        {
+            for (int j=0; j<w; j++)
+            {   
+                if (i == 0 || i==h-1 || j==0 || j==w-1 || i + j == h-1 || i == j) System.out.print("*");
+                else System.out.print(" ");
+                //System.out.print(i + "" + j + " ");
+            }
+            System.out.println();
+        }   
+    }
+    
+    public static void twoStarBoxes(int h)
+    {
+        int w = h;
+        for(int i = 0; i < h; i++)
+        {
+            for(int j = 0; j < w; j++)
+            {
+              if(i < h/2)
+              {
+                  if(j < w/2)System.out.print("*");
+                  else System.out.print(" ");
+              }
+              else
+              {
+                  if(j >= w/2)System.out.print("*");
+                  else System.out.print(" ");
+              }  
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void starTriangle(int h)
+    {
+        int w = h;
+        for(int i = 0; i < h; i++)
+        {
+            for(int j = 0; j < w; j++)
+            {
+                if(i == j || i > j)System.out.print("*");
+                else System.out.print(" ");
+                //System.out.print(i + "" + j + " ");
+            }
+            System.out.println();
+        }
+        
+    }
+    
+    public static void emptyTriangle(int h)
+    {
        int w = h;
-       
-       for(int r = 0; r<h; r++)
-       {
-          for(int c = 0; c<w; c++)
-          {
-             if(r ==0 || r == h-1 || c == 0 || c == 3) System.out.print("*");
-             //System.out.print(r + "" + c + " "); 
-              
-             
-          }
-          System.out.println();           
-       }
+        for(int i = 0; i < h; i++)
+        {
+            for(int j = 0; j < w; j++)
+            {
+                if(i == j || j == 0 || i == h-1)System.out.print("*");
+                else System.out.print(" ");
+                //System.out.print(i + "" + j + " ");
+            }
+            System.out.println();
+        }
+         
+    }
+    
+    public static void starTriangleUR(int h)
+    {
+        int w = h;
+        for(int i = 0; i < h; i ++)
+        {
+           for(int j = 0; j < w; j++)
+           {
+              if(i == j || i < j)System.out.print("*");
+              else System.out.print(" ");
+           }
+           System.out.println();
+        }
+    }
+    
+    public static void isoscelesStarTriangle(int h,int w)
+    {
+        int middle = w/2;
+        for(int i = 0; i < h; i ++)
+        {
+           for(int j = 0; j < w; j++)
+           {
+               int start = middle - i;
+               int end = middle + i;
+               
+               if(j >= start && j < end)System.out.print("*");
+               else System.out.print(" ");
+           }
+           System.out.println();
+        }
+    }
+    
+    public static void checkerBoard(int h)
+    {
+        int w = h;
+        for(int i = 0; i < h; i++)
+        {
+            for(int j = 0; j < w; j++)
+            {
+                if((j + (i%2))%2 == 0)System.out.print("*");
+                else System.out.print(" ");
+                //System.out.print(i + "" + j + " ");
+            }
+            System.out.println();
+        }
+        
+    }
+    
+    /**
+     * A more efficient way to determine if an int is prime.
+     * 
+     * @param n     number to test
+     * @return      true if number is prime, false otherwise
+     */
+    public static boolean isPrime2(int n)
+    {
+        if (n < 2) return false;
+        else if (n == 2)        return true;
+        else if (n % 2==0) return false;
+        
+        double limit = Math.sqrt(n);
+        
+        for (int i=3; i<=limit; i+=2)
+        {
+            if (n % i == 0) return false;
+        }
+        
+        return true;
+    }
+    
+    /**
+     * returns the nth prime
+     * 
+     * 
+     * @param nth the nth prime the function will return
+     * @return returns the prime at the nth place
+     */
+    public static int nthPrime(int nth)
+    {
+        int numPrime = 0;
+        int num = 1;
+        while(numPrime != nth)
+        {
+            num ++;
+            if(isPrime2(num))
+            {
+                numPrime ++;
+            }
+        }
+        return num;
+    }
+    
+    public static void primeStars(int h)
+    {
+        for(int i = 1; i < h; i++)
+        {
+            {
+                int count = nthPrime(i);
+                for(int j = 0; j < count; j++){
+                    System.out.print("*");
+                }
+            }
+            System.out.println();
+        }
+        
     }
     
     public static void main(String[] args) 
