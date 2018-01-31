@@ -5,8 +5,8 @@
  * (Look in the StarInstructions.txt file to see what each method
  *  should draw.)
  *
- * @author  [          ] <-- you
- * @version [          ] <-- today
+ * @author Erik B.
+ * @version 
  */
 
 
@@ -238,6 +238,56 @@ class StarPatterns
                 int count = nthPrime(i);
                 for(int j = 0; j < count; j++){
                     System.out.print("*");
+                }
+            }
+            System.out.println();
+        }
+        
+    }
+    
+    public static void fibonacciStars(int h)
+    {
+        int a = 1;
+        int b = 1; 
+        int c = a + b;
+        
+        for(int i = 0; i < h; i ++)
+        {
+            int count = c;
+            if(i == 0 || i == 1) count = 1;
+            
+            for(int j = 0; j < count; j++){
+                System.out.print("*");
+            }
+
+            if(i != 0 && i != 1){
+                a = b;
+                b = c;
+                c = a + b;
+            }
+            
+            System.out.println();
+        }
+    }
+    
+    public static void starFlag()
+    {
+        int h = 14;
+        int w = 36;
+        for(int i = 0; i <= h; i++){
+            for(int j = 0; j <= w; j++){
+                if(i < 7)
+                {
+                    if(j < 17){
+                        System.out.print("*");
+                    }
+                    else if(i%2 == 0){
+                        System.out.print("R");
+                    }
+                }
+                else if(i%2 == 0)
+                {
+                    System.out.print("R");
                 }
             }
             System.out.println();
