@@ -153,21 +153,9 @@ class StarPatterns
         }
     }
     
-    public static void isoscelesStarTriangle(int h,int w)
+    public static void isoscelesStarTriangle(int w)
     {
-        int middle = w/2;
-        for(int i = 0; i < h; i ++)
-        {
-           for(int j = 0; j < w; j++)
-           {
-               int start = middle - i;
-               int end = middle + i;
-               
-               if(j >= start && j < end)System.out.print("*");
-               else System.out.print(" ");
-           }
-           System.out.println();
-        }
+        
     }
     
     public static void checkerBoard(int h)
@@ -184,6 +172,30 @@ class StarPatterns
             System.out.println();
         }
         
+    }
+    
+    public static void biggerCheckerBoard(int h)
+    {
+       
+    }
+    
+    public static void upsideDownCheckeredTriangle(int w)
+    {
+        int start = 0;
+        int end = w;
+        int h = (w/2) + 1;
+        for(int i = 0; i < h; i++)
+        {
+            for(int j = 0; j < w; j++)
+            {
+                if(j < start || j > end)System.out.print(" ");
+                else if((j + (i%2))%2 == 0)System.out.print("*");
+                else System.out.print(" ");
+            }
+            System.out.println();
+            start ++;
+            end --;
+        }
     }
     
     /**
